@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<todolist.Models.Todo>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link href="~/Css/Css.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="myDIV" class="header">
+            <h2 style="margin:5px">To Do List</h2>
+            <input type="text" id="myInput" placeholder="Eklemek İstediğinizi Yazın.">
+            <button class="btn">Ekle</button>
+        </div>
+        <ul id="myUL">
+
+            @foreach (var todo in Model)
+            {
+                if (todo.gorevIsDone == true)
+                {
+                    <li class="checked">
+                        @todo.gorevAd <span class="kapat" name="kapatbisi">x</span>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @todo.gorevAd <span class="kapat" name="kapatbisi">x</span>
+                    </li>
+                }
+            }
+        </ul>
+        <script src="~/Script/JScript.js"></script>
+
+        
+
+    </body>
+</html>
